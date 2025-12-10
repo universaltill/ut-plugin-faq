@@ -1,0 +1,40 @@
+{
+  "id": "com.universaltill.ut-faq",
+  "name": "Universal Till FAQ",
+  "version": "0.1.1",
+  "description": "Localized FAQ page for Universal Till POS",
+  "canonical_type": "ui-extension",
+  "capabilities": [
+    "page"
+  ],
+  "permissions": [
+    "storage.local.10MB"
+  ],
+  "locales": [
+    "en-US",
+    "en-GB",
+    "fr-FR",
+    "ar-SA",
+    "fa-IR",
+    "tr-TR",
+    "es-ES",
+    "it-IT",
+    "pt-PT"
+  ],
+  "supported_architectures": [
+    "linux/amd64",
+    "linux/arm64",
+    "darwin/amd64"
+  ],
+  "min_host_version": "1.0.0",
+  "resources": {
+    "icon": "assets/icon.png",
+    "screenshots": [
+      "assets/screenshot-en.png",
+      "assets/screenshot-fr.png"
+    ],
+    "documentation": "README.md",
+    "license": "LICENSE",
+    "changelog": "CHANGELOG.md"
+  }
+}

@@ -1,0 +1,30 @@
+# Go build
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Binaries / build artifacts
+/bin/
+/dist/
+/build/
+
+# Dependencies
+/vendor/
+
+# Editor/OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Coverage
+coverage/

@@ -1,50 +1,53 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: N/A → 1.0.0
+- Modified principles: Initial definition (User-Value & I18N First; Marketplace Compliance by Default; Offline Resilience; Testable, Independent Increments; Security & Least Privilege)
+- Added sections: Operational & Compliance Standards; Development Workflow & Quality Gates
+- Removed sections: None
+- Templates requiring updates: ✅ .specify/templates/spec-template.md (reviewed, no change) | ✅ .specify/templates/plan-template.md (reviewed, no change) | ✅ .specify/templates/tasks-template.md (reviewed, no change)
+- Follow-up TODOs: None
+-->
+
+# UT Plugin FAQ Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. User-Value & I18N First
+All work must prioritize merchant and cashier comprehension: multilingual content, RTL correctness, clear labels, and predictable navigation. Success is measured by reduced support needs and faster task completion across locales.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Marketplace Compliance by Default
+Every change must preserve marketplace readiness: valid manifest and taxonomy, declared capabilities/types, minimal permissions, required assets (icon, screenshots, docs), and zero MV-* validation errors before release.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Offline Resilience
+FAQ content and UI must function without connectivity after installation. Downloads and updates must resume safely, validate checksums, and never corrupt existing cached content.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Testable, Independent Increments
+User stories and tasks must be independently deliverable and verifiable. Each increment needs acceptance scenarios, measurable outcomes, and clear scope boundaries to avoid coupling.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Security & Least Privilege
+Plugins request only the permissions necessary for UI display and local storage. Authentication context from POS must be respected; sensitive data avoidance is preferred over protection. Any telemetry must follow marketplace policy.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Operational & Compliance Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Support the published locale set (en-US, en-GB, fr-FR, ar-SA, fa-IR, tr-TR, es-ES, it-IT, pt-PT) with explicit fallbacks to English and correct RTL handling where applicable.
+- Declare `canonical_type` suitable for UI/page plugins and align `plugin_entries` to Help/Support navigation with stable routes.
+- Package FAQ content with version and checksum metadata; reject or retry corrupted downloads.
+- Keep permissions constrained to UI rendering, cached storage, and only mandated telemetry; no external network calls for FAQ rendering.
+- Maintain merchant-facing documentation and visible version/last-updated metadata inside the FAQ page.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow & Quality Gates
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Specifications must include prioritized, independently testable user stories, edge cases, functional requirements, entities, and measurable success criteria.
+- Plans must document constraints for offline-first behavior, locale coverage, manifest validation, and permission minimization.
+- Tasks must map to user stories and keep dependencies minimal; testing tasks are encouraged when explicitly requested by specs.
+- Before delivery: ensure manifest validation passes, offline rendering verified, locale coverage confirmed (including RTL), and navigation entry registered/removed cleanly.
+- Any complexity or deviation from principles requires written justification in plan.md (Complexity Tracking) and reviewer acknowledgment.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution governs all specs, plans, and tasks for the UT Plugin FAQ project. Conflicts resolve in favor of this document.
+- Amendments: propose changes via PR with rationale, version bump per semantic rules (MAJOR for principle changes/removals, MINOR for new/expanded guidance, PATCH for clarifications).
+- Compliance: reviewers must check Constitution Check sections in plans; violations require documented justification.
+- Source of truth: `.specify/memory/constitution.md`; templates must be updated or explicitly noted when guidance changes.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-10

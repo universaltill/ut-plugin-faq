@@ -1,0 +1,30 @@
+{
+  "locale": "pt-PT",
+  "version": "0.1.0",
+  "checksum_sha256": "",
+  "rtl": false,
+  "fallback_locale": "en-US",
+  "categories": [
+    {
+      "id": "general",
+      "name": "General",
+      "sort_order": 1
+    }
+  ],
+  "faq_entries": [
+    {
+      "id": "getting-started",
+      "category": "general",
+      "question": "How do I access the FAQ? (pt-PT)",
+      "answer": "Open Help/FAQ from the Help menu. (pt-PT)",
+      "last_updated": "2025-12-10",
+      "sort_order": 1,
+      "keywords": [
+        "faq",
+        "help",
+        "pt-PT"
+      ]
+    }
+  ],
+  "question_prefix": "FAQ (pt-PT)"
+}
