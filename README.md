@@ -1,5 +1,7 @@
 # Universal Till FAQ Plugin
 
+[![CI](https://github.com/universaltill/ut-plugin-faq/actions/workflows/ci.yml/badge.svg)](https://github.com/universaltill/ut-plugin-faq/actions/workflows/ci.yml)
+
 Multilingual, offline-capable FAQ page plugin for Universal Till POS.
 
 ## Features
