@@ -1,7 +1,7 @@
 {
   "name": "ut-plugin-faq",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "test:e2e": "playwright test"

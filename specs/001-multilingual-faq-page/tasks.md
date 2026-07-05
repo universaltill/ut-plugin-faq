@@ -31,7 +31,7 @@ description: "Task list for feature implementation"
 
 **Purpose**: Core infrastructure required before user stories
 
-- [X] T004 Create manifest scaffold in `src/manifest/manifest.json` with required fields (id, name, version, canonical_type `ui-extension`, capability `page`, locales, architectures, permissions minimal)
+- [X] T004 Create manifest scaffold in `src/manifest/manifest.json` with required fields (id, name, version, canonical_type `page`, capability `page`, locales, architectures, permissions minimal)
 - [X] T005 Implement selected localization approach using embedded JSON bundles; ensure plan.md reflects this decision
 - [X] T006 Add localization bundle schema and sample content placeholders for each locale in `src/faq/content/*.json`, including version metadata and checksum fields
 - [X] T007 Implement bundle loader and checksum validator in `src/faq/loader.go` to read embedded/cached JSON and verify integrity; reject/promote-block on checksum failure
