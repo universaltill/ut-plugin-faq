@@ -57,5 +57,43 @@ Notes:
 Version bump checklist: update `version` in `src/manifest/manifest.json`, the
 matching `version` in `package.json`, and add a `CHANGELOG.md` entry.
 
+## Publish to the Marketplace
+
+`scripts/publish.sh` uploads a packaged artifact to the marketplace vendor
+release API. The same script serves local publishing and CI.
+
+```bash
+# Local/dev publish (marketplace running locally, package first)
+scripts/package.sh
+MARKETPLACE_BASE_URL=http://localhost:8081 scripts/publish.sh
+```
+
+Environment variables:
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `MARKETPLACE_BASE_URL` | yes | Marketplace origin, e.g. `http://localhost:8081` |
+| `MARKETPLACE_UPLOAD_TOKEN` | when enforced | Bearer token for the upload endpoint |
+| `MARKETPLACE_CHANNEL` | no | `stable` (default), `beta`, or `alpha` |
+| `MARKETPLACE_LISTING_ID` | no | Existing listing UUID; first publish auto-creates a draft listing |
+| `RELEASE_NOTES` | no | Defaults to the `CHANGELOG.md` section for the current version |
+| `ARTIFACT` | no | Explicit artifact path; defaults to the current version/host target in `dist/` |
+
+### CI pipeline
+
+`.github/workflows/release.yml` runs on `v*` tags (the tag must match the
+manifest version) and on manual dispatch. It tests, validates the manifest,
+packages `linux/amd64` and `linux/arm64` artifacts, and attaches both to the
+workflow run. It then publishes to the marketplace using `scripts/publish.sh`
+with `MARKETPLACE_BASE_URL` / `MARKETPLACE_UPLOAD_TOKEN` provided as repository
+secrets (`MARKETPLACE_LISTING_ID` as an optional repository variable). Manual
+dispatch can select the channel or skip the upload for a dry run.
+
+> **Single-arch publish:** the marketplace currently stores one artifact per
+> `(version, channel)` release, so CI publishes only the `linux/amd64` artifact;
+> the `linux/arm64` build is still attached to the workflow run. Per-architecture
+> marketplace releases await the marketplace distinguishing architecture in its
+> release model.
+
 ## License
 MIT — see [LICENSE](LICENSE)
