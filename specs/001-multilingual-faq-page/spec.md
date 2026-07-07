@@ -63,7 +63,7 @@ Operations publishes updated FAQ content (new questions, revised answers) throug
 
 ### Functional Requirements
 
-- **FR-001**: The plugin manifest MUST declare `canonical_type` suitable for UI extensions (e.g., `ui-extension`) with a `page`-type entry, include supported locales (en-US, en-GB, fr-FR, ar-SA, fa-IR, tr-TR, es-ES, it-IT, pt-PT), supported architectures, and a minimum Universal Till host version consistent with marketplace schema requirements.
+- **FR-001**: The plugin manifest MUST declare `canonical_type` `page` (POS host taxonomy) with a `page`-type entry, include supported locales (en-US, en-GB, fr-FR, ar-SA, fa-IR, tr-TR, es-ES, it-IT, pt-PT), supported architectures, and a minimum Universal Till host version consistent with marketplace schema requirements.
 - **FR-002**: The plugin package MUST ship localized FAQ content for each supported locale (questions, answers, category labels, UI strings) and identify the content version so the POS can verify freshness after updates.
 - **FR-003**: Installation on Universal Till MUST register a Help/FAQ navigation entry of type `page` with localized label/icon, `parent_page_key` aligned to the Help/Support menu, and a stable route so POS shells can render it without custom wiring.
 - **FR-004**: When the FAQ page loads, the plugin MUST auto-select locale using POS locale preference and apply unsupported-locale fallback to English without layout breakage, honoring RTL for ar-SA and fa-IR.

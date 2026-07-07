@@ -5,7 +5,7 @@
 - `name`: Human-readable name (max 50 chars).
 - `version`: Semver (MAJOR.MINOR.PATCH).
 - `description`: ≤200 chars summarizing FAQ purpose.
-- `canonical_type`: `ui-extension` (page plugin).
+- `canonical_type`: `page` (POS host taxonomy; formerly `ui-extension` before alignment with the host verifier).
 - `capabilities`: include `page` (and any marketplace-required UI capability identifiers).
 - `permissions`: minimal — UI render + local storage; optional telemetry if mandated.
 - `locales`: ["en-US","en-GB","fr-FR","ar-SA","fa-IR","tr-TR","es-ES","it-IT","pt-PT"].
@@ -26,7 +26,7 @@
   "name": "Universal Till FAQ",
   "version": "1.0.0",
   "description": "Localized FAQ page for Universal Till POS",
-  "canonical_type": "ui-extension",
+  "canonical_type": "page",
   "capabilities": ["page"],
   "permissions": ["storage.local.10MB"],
   "locales": ["en-US","en-GB","fr-FR","ar-SA","fa-IR","tr-TR","es-ES","it-IT","pt-PT"],

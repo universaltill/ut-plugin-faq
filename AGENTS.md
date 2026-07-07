@@ -32,7 +32,10 @@ tests/
 
 ## Commands
 
-# Add commands for build/test/manifest validation as they are defined
+- Build: `go build -o bin/ut-faq ./src`
+- Test: `go test ./...`
+- Validate manifest: `scripts/validate.sh` (uses `uitill` when installed, else `go run ./tools/pkgtool validate`)
+- Package release artifact: `scripts/package.sh` (env: `TARGET_OS`, `TARGET_ARCH`, `SKIP_TESTS=1`)
 
 ## Code Style
 

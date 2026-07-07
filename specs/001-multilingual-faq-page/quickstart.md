@@ -53,6 +53,6 @@ UT_DEV_MODE=true ./universal-till
 - Checksums: corrupt a bundle and ensure install/update refuses to promote it; verify rollback keeps prior content.
 
 ## Packaging for Marketplace
-- Ensure manifest has `canonical_type` `ui-extension`, capability `page`, minimal permissions, required assets (icon 512x512, screenshots, README, license, changelog).
+- Ensure manifest has `canonical_type` `page`, capability `page`, minimal permissions, required assets (icon 512x512, screenshots, README, license, changelog).
 - Generate artifact with checksums/signatures per marketplace tooling.
 - Submit to marketplace; verify zero MV-* errors.
