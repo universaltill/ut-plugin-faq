@@ -63,16 +63,20 @@ matching `version` in `package.json`, and add a `CHANGELOG.md` entry.
 release API. The same script serves local publishing and CI.
 
 ```bash
-# Local/dev publish (marketplace running locally, package first)
+# Publish to the deployed dev marketplace (package first)
 scripts/package.sh
-MARKETPLACE_BASE_URL=http://localhost:8081 scripts/publish.sh
+MARKETPLACE_BASE_URL=https://marketplace.home.taskrunnertech.co.uk \
+  MARKETPLACE_UPLOAD_TOKEN=<token> scripts/publish.sh
+
+# Or publish to a marketplace running locally
+# MARKETPLACE_BASE_URL=http://localhost:8081 scripts/publish.sh
 ```
 
 Environment variables:
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `MARKETPLACE_BASE_URL` | yes | Marketplace origin, e.g. `http://localhost:8081` |
+| `MARKETPLACE_BASE_URL` | yes | Marketplace origin, e.g. `https://marketplace.home.taskrunnertech.co.uk` (dev) or `http://localhost:8081` |
 | `MARKETPLACE_UPLOAD_TOKEN` | when enforced | Bearer token for the upload endpoint |
 | `MARKETPLACE_CHANNEL` | no | `stable` (default), `beta`, or `alpha` |
 | `MARKETPLACE_LISTING_ID` | no | Existing listing UUID; first publish auto-creates a draft listing |
