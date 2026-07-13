@@ -1,30 +1,97 @@
 {
   "locale": "it-IT",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "checksum_sha256": "",
   "rtl": false,
   "fallback_locale": "en-US",
   "categories": [
     {
       "id": "general",
-      "name": "General",
+      "name": "Generale",
       "sort_order": 1
+    },
+    {
+      "id": "sales",
+      "name": "Vendite",
+      "sort_order": 2
     }
   ],
   "faq_entries": [
     {
-      "id": "getting-started",
-      "category": "general",
-      "question": "How do I access the FAQ? (it-IT)",
-      "answer": "Open Help/FAQ from the Help menu. (it-IT)",
-      "last_updated": "2025-12-10",
+      "id": "scan-item",
+      "category": "sales",
+      "question": "Come aggiungo un articolo a una vendita?",
+      "answer": "Scansiona il codice a barre, digita il codice o lo SKU nella casella di scansione, oppure tocca il riquadro del prodotto. L'articolo appare subito nel carrello.",
+      "last_updated": "2026-07-13",
       "sort_order": 1,
       "keywords": [
-        "faq",
-        "help",
-        "it-IT"
+        "scansione",
+        "codice a barre",
+        "carrello"
+      ]
+    },
+    {
+      "id": "take-payment",
+      "category": "sales",
+      "question": "Come incasso un pagamento?",
+      "answer": "Con gli articoli nel carrello, apri la scheda Paga e tocca Contanti o Carta per l'intero importo, oppure usa la scheda Dividi per combinare più metodi di pagamento.",
+      "last_updated": "2026-07-13",
+      "sort_order": 2,
+      "keywords": [
+        "pagamento",
+        "contanti",
+        "carta"
+      ]
+    },
+    {
+      "id": "hold-sale",
+      "category": "sales",
+      "question": "Posso sospendere una vendita e servire un altro cliente?",
+      "answer": "Sì — tocca Sospendi. Il carrello viene parcheggiato e mostrato come etichetta sopra le schede; toccala più tardi per riprendere. Il carrello deve essere vuoto per riprendere una vendita.",
+      "last_updated": "2026-07-13",
+      "sort_order": 3,
+      "keywords": [
+        "sospendi",
+        "riprendi"
+      ]
+    },
+    {
+      "id": "offline",
+      "category": "general",
+      "question": "La cassa funziona senza internet?",
+      "answer": "Sì. Vendite, scontrini e l'intero incasso funzionano offline; la cassa si sincronizza e raggiunge lo store dei plugin quando torna la connessione.",
+      "last_updated": "2026-07-13",
+      "sort_order": 4,
+      "keywords": [
+        "offline",
+        "internet"
+      ]
+    },
+    {
+      "id": "change-language",
+      "category": "general",
+      "question": "Come cambio la lingua?",
+      "answer": "Usa il selettore della lingua nella barra di navigazione. Altre lingue si installano come plugin dallo store.",
+      "last_updated": "2026-07-13",
+      "sort_order": 5,
+      "keywords": [
+        "lingua",
+        "traduzione"
+      ]
+    },
+    {
+      "id": "plugins",
+      "category": "general",
+      "question": "Come installo i plugin?",
+      "answer": "Apri Plugin → Store, scegli un plugin approvato per il tuo negozio e tocca Installa. La firma di ogni plugin viene verificata prima dell'esecuzione.",
+      "last_updated": "2026-07-13",
+      "sort_order": 6,
+      "keywords": [
+        "plugin",
+        "store",
+        "installare"
       ]
     }
   ],
-  "question_prefix": "FAQ (it-IT)"
+  "question_prefix": "Domande frequenti"
 }

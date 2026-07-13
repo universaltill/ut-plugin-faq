@@ -1,30 +1,97 @@
 {
   "locale": "ar-SA",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "checksum_sha256": "",
   "rtl": true,
   "fallback_locale": "en-US",
   "categories": [
     {
       "id": "general",
-      "name": "General",
+      "name": "عام",
       "sort_order": 1
+    },
+    {
+      "id": "sales",
+      "name": "المبيعات",
+      "sort_order": 2
     }
   ],
   "faq_entries": [
     {
-      "id": "getting-started",
-      "category": "general",
-      "question": "How do I access the FAQ? (ar-SA)",
-      "answer": "Open Help/FAQ from the Help menu. (ar-SA)",
-      "last_updated": "2025-12-10",
+      "id": "scan-item",
+      "category": "sales",
+      "question": "كيف أضيف صنفًا إلى عملية بيع؟",
+      "answer": "امسح الباركود، أو اكتب الباركود أو رمز الصنف في خانة المسح، أو اضغط على بطاقة المنتج. يظهر الصنف في السلة فورًا.",
+      "last_updated": "2026-07-13",
       "sort_order": 1,
       "keywords": [
-        "faq",
-        "help",
-        "ar-SA"
+        "مسح",
+        "باركود",
+        "سلة"
+      ]
+    },
+    {
+      "id": "take-payment",
+      "category": "sales",
+      "question": "كيف أستلم الدفع؟",
+      "answer": "بعد إضافة الأصناف إلى السلة، افتح تبويب الدفع واضغط نقدًا أو بطاقة للمبلغ كاملًا، أو استخدم تبويب التقسيم للجمع بين عدة طرق دفع.",
+      "last_updated": "2026-07-13",
+      "sort_order": 2,
+      "keywords": [
+        "دفع",
+        "نقد",
+        "بطاقة"
+      ]
+    },
+    {
+      "id": "hold-sale",
+      "category": "sales",
+      "question": "هل يمكنني تعليق عملية بيع وخدمة عميل آخر؟",
+      "answer": "نعم — اضغط تعليق. تُحفظ السلة وتظهر كشارة فوق التبويبات؛ اضغط عليها لاحقًا للمتابعة. يجب أن تكون السلة فارغة للمتابعة.",
+      "last_updated": "2026-07-13",
+      "sort_order": 3,
+      "keywords": [
+        "تعليق",
+        "استئناف"
+      ]
+    },
+    {
+      "id": "offline",
+      "category": "general",
+      "question": "هل تعمل الكاشير بدون إنترنت؟",
+      "answer": "نعم. تعمل المبيعات والإيصالات وكامل عملية الدفع دون اتصال؛ وتتم المزامنة والوصول إلى متجر الإضافات عند عودة الاتصال.",
+      "last_updated": "2026-07-13",
+      "sort_order": 4,
+      "keywords": [
+        "دون اتصال",
+        "إنترنت"
+      ]
+    },
+    {
+      "id": "change-language",
+      "category": "general",
+      "question": "كيف أغيّر اللغة؟",
+      "answer": "استخدم مبدّل اللغة في شريط التنقل العلوي. يمكن تثبيت لغات إضافية كإضافات من المتجر.",
+      "last_updated": "2026-07-13",
+      "sort_order": 5,
+      "keywords": [
+        "لغة",
+        "ترجمة"
+      ]
+    },
+    {
+      "id": "plugins",
+      "category": "general",
+      "question": "كيف أثبّت الإضافات؟",
+      "answer": "افتح الإضافات ← المتجر، واختر إضافة معتمدة لمتجرك واضغط تثبيت. يتم التحقق من توقيع كل إضافة قبل تشغيلها.",
+      "last_updated": "2026-07-13",
+      "sort_order": 6,
+      "keywords": [
+        "إضافات",
+        "متجر",
+        "تثبيت"
       ]
     }
   ],
-  "question_prefix": "FAQ (ar-SA)"
+  "question_prefix": "الأسئلة الشائعة"
 }

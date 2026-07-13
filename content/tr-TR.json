@@ -1,30 +1,97 @@
 {
   "locale": "tr-TR",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "checksum_sha256": "",
   "rtl": false,
   "fallback_locale": "en-US",
   "categories": [
     {
       "id": "general",
-      "name": "General",
+      "name": "Genel",
       "sort_order": 1
+    },
+    {
+      "id": "sales",
+      "name": "Satış",
+      "sort_order": 2
     }
   ],
   "faq_entries": [
     {
-      "id": "getting-started",
-      "category": "general",
-      "question": "How do I access the FAQ? (tr-TR)",
-      "answer": "Open Help/FAQ from the Help menu. (tr-TR)",
-      "last_updated": "2025-12-10",
+      "id": "scan-item",
+      "category": "sales",
+      "question": "Satışa nasıl ürün eklerim?",
+      "answer": "Barkodu okutun, barkodu veya stok kodunu tarama kutusuna yazın ya da ürün karosuna dokunun. Ürün anında sepette görünür.",
+      "last_updated": "2026-07-13",
       "sort_order": 1,
       "keywords": [
-        "faq",
-        "help",
-        "tr-TR"
+        "barkod",
+        "tarama",
+        "sepet"
+      ]
+    },
+    {
+      "id": "take-payment",
+      "category": "sales",
+      "question": "Ödemeyi nasıl alırım?",
+      "answer": "Sepette ürünler varken Öde sekmesini açın ve tutarın tamamı için Nakit veya Kart'a dokunun; birden fazla ödeme yöntemini birleştirmek için Böl sekmesini kullanın.",
+      "last_updated": "2026-07-13",
+      "sort_order": 2,
+      "keywords": [
+        "ödeme",
+        "nakit",
+        "kart"
+      ]
+    },
+    {
+      "id": "hold-sale",
+      "category": "sales",
+      "question": "Bir satışı bekletip başka bir müşteriyle ilgilenebilir miyim?",
+      "answer": "Evet — Beklet'e dokunun. Sepet kenara alınır ve sekmelerin üzerinde bir etiket olarak görünür; devam etmek için daha sonra etikete dokunun. Devam etmek için sepetin boş olması gerekir.",
+      "last_updated": "2026-07-13",
+      "sort_order": 3,
+      "keywords": [
+        "beklet",
+        "devam"
+      ]
+    },
+    {
+      "id": "offline",
+      "category": "general",
+      "question": "Kasa internetsiz çalışır mı?",
+      "answer": "Evet. Satışlar, fişler ve tüm tahsilat tamamen çevrimdışı çalışır; bağlantı geri geldiğinde kasa senkronize olur ve eklenti mağazasına erişir.",
+      "last_updated": "2026-07-13",
+      "sort_order": 4,
+      "keywords": [
+        "çevrimdışı",
+        "internet"
+      ]
+    },
+    {
+      "id": "change-language",
+      "category": "general",
+      "question": "Dili nasıl değiştiririm?",
+      "answer": "Üst gezinme çubuğundaki dil seçicisini kullanın. Mağazadan eklenti olarak başka diller de kurulabilir.",
+      "last_updated": "2026-07-13",
+      "sort_order": 5,
+      "keywords": [
+        "dil",
+        "çeviri"
+      ]
+    },
+    {
+      "id": "plugins",
+      "category": "general",
+      "question": "Eklentileri nasıl kurarım?",
+      "answer": "Eklentiler → Mağaza'yı açın, mağazanız için onaylanmış bir eklenti seçin ve Kur'a dokunun. Her eklentinin imzası çalıştırılmadan önce doğrulanır.",
+      "last_updated": "2026-07-13",
+      "sort_order": 6,
+      "keywords": [
+        "eklenti",
+        "mağaza",
+        "kurulum"
       ]
     }
   ],
-  "question_prefix": "FAQ (tr-TR)"
+  "question_prefix": "SSS"
 }

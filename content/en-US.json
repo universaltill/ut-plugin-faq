@@ -1,6 +1,6 @@
 {
   "locale": "en-US",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "checksum_sha256": "",
   "rtl": false,
   "fallback_locale": "en-US",
@@ -9,22 +9,93 @@
       "id": "general",
       "name": "General",
       "sort_order": 1
+    },
+    {
+      "id": "sales",
+      "name": "Sales",
+      "sort_order": 2
     }
   ],
   "faq_entries": [
     {
-      "id": "getting-started",
-      "category": "general",
-      "question": "How do I access the FAQ? (en-US)",
-      "answer": "Open Help/FAQ from the Help menu. (en-US)",
-      "last_updated": "2025-12-10",
+      "id": "scan-item",
+      "category": "sales",
+      "question": "How do I add an item to a sale?",
+      "answer": "Scan its barcode, type the barcode/SKU into the scan box, or tap the product tile. The item appears in the basket immediately.",
+      "last_updated": "2026-07-13",
       "sort_order": 1,
       "keywords": [
-        "faq",
-        "help",
-        "en-US"
+        "scan",
+        "barcode",
+        "basket"
+      ]
+    },
+    {
+      "id": "take-payment",
+      "category": "sales",
+      "question": "How do I take a payment?",
+      "answer": "With items in the basket, open the Pay tab and tap Cash or Card for the full amount, or use the Split tab to combine several payment methods.",
+      "last_updated": "2026-07-13",
+      "sort_order": 2,
+      "keywords": [
+        "payment",
+        "cash",
+        "card",
+        "split"
+      ]
+    },
+    {
+      "id": "hold-sale",
+      "category": "sales",
+      "question": "Can I pause a sale and serve another customer?",
+      "answer": "Yes — tap Hold. The basket is parked and shown as a chip above the tabs; tap the chip later to resume it. The basket must be empty to resume a held sale.",
+      "last_updated": "2026-07-13",
+      "sort_order": 3,
+      "keywords": [
+        "hold",
+        "resume",
+        "park"
+      ]
+    },
+    {
+      "id": "offline",
+      "category": "general",
+      "question": "Does the till work without internet?",
+      "answer": "Yes. Sales, receipts and the whole checkout work fully offline; the till syncs and reaches the plugin store when the connection returns.",
+      "last_updated": "2026-07-13",
+      "sort_order": 4,
+      "keywords": [
+        "offline",
+        "internet",
+        "sync"
+      ]
+    },
+    {
+      "id": "change-language",
+      "category": "general",
+      "question": "How do I change the language?",
+      "answer": "Use the language switcher in the top navigation bar. Additional languages can be installed as plugins from the store.",
+      "last_updated": "2026-07-13",
+      "sort_order": 5,
+      "keywords": [
+        "language",
+        "locale",
+        "translation"
+      ]
+    },
+    {
+      "id": "plugins",
+      "category": "general",
+      "question": "How do I install plugins?",
+      "answer": "Open Plugins → Store, choose a plugin approved for your store and tap Install. Every plugin is signature-verified before it runs.",
+      "last_updated": "2026-07-13",
+      "sort_order": 6,
+      "keywords": [
+        "plugins",
+        "store",
+        "install"
       ]
     }
   ],
-  "question_prefix": "FAQ (en-US)"
+  "question_prefix": "FAQ"
 }

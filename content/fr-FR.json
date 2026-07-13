@@ -1,30 +1,97 @@
 {
   "locale": "fr-FR",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "checksum_sha256": "",
   "rtl": false,
   "fallback_locale": "en-US",
   "categories": [
     {
       "id": "general",
-      "name": "General",
+      "name": "Général",
       "sort_order": 1
+    },
+    {
+      "id": "sales",
+      "name": "Ventes",
+      "sort_order": 2
     }
   ],
   "faq_entries": [
     {
-      "id": "getting-started",
-      "category": "general",
-      "question": "How do I access the FAQ? (fr-FR)",
-      "answer": "Open Help/FAQ from the Help menu. (fr-FR)",
-      "last_updated": "2025-12-10",
+      "id": "scan-item",
+      "category": "sales",
+      "question": "Comment ajouter un article à une vente ?",
+      "answer": "Scannez son code-barres, saisissez le code-barres ou le SKU dans la zone de scan, ou touchez la vignette du produit. L'article apparaît aussitôt dans le panier.",
+      "last_updated": "2026-07-13",
       "sort_order": 1,
       "keywords": [
-        "faq",
-        "help",
-        "fr-FR"
+        "scanner",
+        "code-barres",
+        "panier"
+      ]
+    },
+    {
+      "id": "take-payment",
+      "category": "sales",
+      "question": "Comment encaisser un paiement ?",
+      "answer": "Avec des articles dans le panier, ouvrez l'onglet Payer et touchez Espèces ou Carte pour le montant total, ou utilisez l'onglet Partager pour combiner plusieurs moyens de paiement.",
+      "last_updated": "2026-07-13",
+      "sort_order": 2,
+      "keywords": [
+        "paiement",
+        "espèces",
+        "carte"
+      ]
+    },
+    {
+      "id": "hold-sale",
+      "category": "sales",
+      "question": "Puis-je mettre une vente en attente pour servir un autre client ?",
+      "answer": "Oui — touchez Mettre en attente. Le panier est mis de côté et affiché comme une pastille au-dessus des onglets ; touchez-la plus tard pour reprendre. Le panier doit être vide pour reprendre une vente.",
+      "last_updated": "2026-07-13",
+      "sort_order": 3,
+      "keywords": [
+        "attente",
+        "reprendre"
+      ]
+    },
+    {
+      "id": "offline",
+      "category": "general",
+      "question": "La caisse fonctionne-t-elle sans internet ?",
+      "answer": "Oui. Les ventes, les tickets et tout l'encaissement fonctionnent hors ligne ; la caisse se synchronise et accède à la boutique de plugins au retour de la connexion.",
+      "last_updated": "2026-07-13",
+      "sort_order": 4,
+      "keywords": [
+        "hors ligne",
+        "internet"
+      ]
+    },
+    {
+      "id": "change-language",
+      "category": "general",
+      "question": "Comment changer de langue ?",
+      "answer": "Utilisez le sélecteur de langue dans la barre de navigation. D'autres langues s'installent comme plugins depuis la boutique.",
+      "last_updated": "2026-07-13",
+      "sort_order": 5,
+      "keywords": [
+        "langue",
+        "traduction"
+      ]
+    },
+    {
+      "id": "plugins",
+      "category": "general",
+      "question": "Comment installer des plugins ?",
+      "answer": "Ouvrez Plugins → Boutique, choisissez un plugin approuvé pour votre magasin et touchez Installer. La signature de chaque plugin est vérifiée avant son exécution.",
+      "last_updated": "2026-07-13",
+      "sort_order": 6,
+      "keywords": [
+        "plugins",
+        "boutique",
+        "installer"
       ]
     }
   ],
-  "question_prefix": "FAQ (fr-FR)"
+  "question_prefix": "FAQ"
 }

@@ -1,6 +1,6 @@
 {
   "locale": "es-ES",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "checksum_sha256": "",
   "rtl": false,
   "fallback_locale": "en-US",
@@ -9,22 +9,89 @@
       "id": "general",
       "name": "General",
       "sort_order": 1
+    },
+    {
+      "id": "sales",
+      "name": "Ventas",
+      "sort_order": 2
     }
   ],
   "faq_entries": [
     {
-      "id": "getting-started",
-      "category": "general",
-      "question": "How do I access the FAQ? (es-ES)",
-      "answer": "Open Help/FAQ from the Help menu. (es-ES)",
-      "last_updated": "2025-12-10",
+      "id": "scan-item",
+      "category": "sales",
+      "question": "¿Cómo añado un artículo a una venta?",
+      "answer": "Escanee su código de barras, escriba el código o SKU en la casilla de escaneo, o toque la tarjeta del producto. El artículo aparece en la cesta al instante.",
+      "last_updated": "2026-07-13",
       "sort_order": 1,
       "keywords": [
-        "faq",
-        "help",
-        "es-ES"
+        "escanear",
+        "código de barras",
+        "cesta"
+      ]
+    },
+    {
+      "id": "take-payment",
+      "category": "sales",
+      "question": "¿Cómo cobro un pago?",
+      "answer": "Con artículos en la cesta, abra la pestaña Pagar y toque Efectivo o Tarjeta por el importe total, o use la pestaña Dividir para combinar varios métodos de pago.",
+      "last_updated": "2026-07-13",
+      "sort_order": 2,
+      "keywords": [
+        "pago",
+        "efectivo",
+        "tarjeta"
+      ]
+    },
+    {
+      "id": "hold-sale",
+      "category": "sales",
+      "question": "¿Puedo aparcar una venta y atender a otro cliente?",
+      "answer": "Sí — toque Retener. La cesta se aparca y se muestra como una ficha sobre las pestañas; tóquela más tarde para reanudarla. La cesta debe estar vacía para reanudar.",
+      "last_updated": "2026-07-13",
+      "sort_order": 3,
+      "keywords": [
+        "retener",
+        "reanudar"
+      ]
+    },
+    {
+      "id": "offline",
+      "category": "general",
+      "question": "¿Funciona la caja sin internet?",
+      "answer": "Sí. Las ventas, los recibos y todo el cobro funcionan sin conexión; la caja se sincroniza y accede a la tienda de plugins cuando vuelve la conexión.",
+      "last_updated": "2026-07-13",
+      "sort_order": 4,
+      "keywords": [
+        "sin conexión",
+        "internet"
+      ]
+    },
+    {
+      "id": "change-language",
+      "category": "general",
+      "question": "¿Cómo cambio el idioma?",
+      "answer": "Use el selector de idioma en la barra de navegación superior. Puede instalar más idiomas como plugins desde la tienda.",
+      "last_updated": "2026-07-13",
+      "sort_order": 5,
+      "keywords": [
+        "idioma",
+        "traducción"
+      ]
+    },
+    {
+      "id": "plugins",
+      "category": "general",
+      "question": "¿Cómo instalo plugins?",
+      "answer": "Abra Plugins → Tienda, elija un plugin aprobado para su tienda y toque Instalar. La firma de cada plugin se verifica antes de ejecutarse.",
+      "last_updated": "2026-07-13",
+      "sort_order": 6,
+      "keywords": [
+        "plugins",
+        "tienda",
+        "instalar"
       ]
     }
   ],
-  "question_prefix": "FAQ (es-ES)"
+  "question_prefix": "Preguntas frecuentes"
 }
