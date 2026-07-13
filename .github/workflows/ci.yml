@@ -1,33 +1,14 @@
 name: CI
-
 on:
   push:
-    branches:
-      - main
+    branches: [main, 001-multilingual-faq-page]
   pull_request:
-
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
-      - name: Check gofmt
-        run: |
-          files="$(gofmt -l $(git ls-files '*.go'))"
-          if [ -n "$files" ]; then
-            echo "gofmt needed for:"
-            echo "$files"
-            exit 1
-          fi
-      - name: Run go vet
-        run: go vet ./...
-      - name: Run tests
-        run: go test -race -coverprofile=coverage.out ./...
-      - name: Upload coverage
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage
-          path: coverage.out
+      - name: Validate manifest + content bundles
+        run: scripts/validate.sh
+      - name: Package (dry run)
+        run: scripts/package.sh

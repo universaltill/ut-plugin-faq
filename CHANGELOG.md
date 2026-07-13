@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0
+- Converted to an asset-only plugin: `runtime: "none"`, Go source, binary and
+  `tools/pkgtool` removed (ADR-0001 — the POS renders `content/<locale>.json`
+  natively, the shipped binary was never executed)
+- One universal artifact per release instead of per-os/arch archives
+- Content bundles moved from `src/faq/content/` to `content/`
+- Release pipeline aligned with the other plugin repos (validate → package →
+  publish → dev auto-approve)
+
 ## 0.1.2
 - Add LICENSE (MIT) and align versions across manifest and package metadata
 - Align manifest with the POS host install contract: `canonical_type: page`, `executable`, `entrypoint`, `device_arch`, `min_pos_version`, navigation `entries`

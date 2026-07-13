@@ -1,22 +1,38 @@
 #!/usr/bin/env bash
+# Validates the FAQ page-plugin manifest: marketplace-required fields
+# (id/name/semver/permissions/locales), asset-only runtime (ADR-0001),
+# exactly one type="page" entry with a route, and a content bundle for
+# every declared locale.
 set -euo pipefail
-
-# Resolve the optional manifest argument against the caller's cwd before
-# changing directory, so relative paths keep working.
-MANIFEST_ARG=${1:-}
-if [[ -n "$MANIFEST_ARG" && "$MANIFEST_ARG" != /* ]]; then
-  MANIFEST_ARG="$(pwd)/$MANIFEST_ARG"
-fi
-
 cd "$(dirname "$0")/.."
-MANIFEST=${MANIFEST_ARG:-src/manifest/manifest.json}
-
-# Prefer the platform CLI when installed; otherwise use the repo-local
-# validator so validation never silently disappears. Note the fallback checks
-# the packaging + POS install contract; marketplace-side validation runs again
-# authoritatively at upload time.
-if command -v uitill >/dev/null 2>&1; then
-  uitill manifest validate "$MANIFEST"
-else
-  go run ./tools/pkgtool validate -manifest "$MANIFEST"
-fi
+python3 - <<'PY'
+import json, os, re, sys
+m = json.load(open("manifest.json"))
+errs = []
+if not re.match(r'^[a-z0-9]+([.-][a-z0-9]+)*$', m.get("id","")): errs.append("bad id")
+if not m.get("name"): errs.append("missing name")
+if not re.match(r'^\d+\.\d+\.\d+', m.get("version","")): errs.append("bad version")
+if not m.get("permissions"): errs.append("missing permissions")
+if not m.get("locales"): errs.append("missing locales")
+if m.get("runtime") != "none": errs.append("runtime must be 'none' — the till renders the content bundle (ADR-0001)")
+if m.get("device_arch") != "any": errs.append("device_arch must be 'any'")
+if m.get("canonical_type") != "page": errs.append("canonical_type must be 'page'")
+pages = [e for e in m.get("entries", []) if e.get("type") == "page"]
+if len(pages) != 1:
+    errs.append(f"expected exactly 1 page entry, got {len(pages)}")
+else:
+    if not pages[0].get("key"): errs.append("page entry missing key")
+    if not pages[0].get("label"): errs.append("page entry missing label")
+    if not pages[0].get("route"): errs.append("page entry missing route")
+for loc in m.get("locales", []):
+    if not os.path.isfile(f"content/{loc}.json"):
+        errs.append(f"missing content bundle content/{loc}.json")
+    else:
+        try:
+            json.load(open(f"content/{loc}.json"))
+        except Exception as e:
+            errs.append(f"content/{loc}.json invalid JSON: {e}")
+if errs:
+    print("FAIL: " + "; ".join(errs)); sys.exit(1)
+print(f"ok {m['id']} v{m['version']} ({len(m['locales'])} locales)")
+PY

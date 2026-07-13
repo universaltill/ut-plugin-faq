@@ -1,22 +1,16 @@
 {
   "id": "com.universaltill.ut-faq",
   "name": "Universal Till FAQ",
-  "version": "0.1.2",
-  "description": "Localized FAQ page for Universal Till POS",
+  "version": "0.2.0",
+  "description": "Localized FAQ page for Universal Till POS — the till renders the content bundle natively (ADR-0001: no plugin binary).",
   "author": "Universal Till Contributors",
   "website": "https://universaltill.com",
   "canonical_type": "page",
-  "runtime": "go",
-  "executable": "bin/ut-faq",
-  "entrypoint": "./bin/ut-faq",
+  "runtime": "none",
   "device_arch": "any",
   "min_pos_version": "1.0.0",
-  "min_host_version": "1.0.0",
-  "capabilities": [
-    "page"
-  ],
   "permissions": [
-    "storage.local.10MB"
+    "ui.page"
   ],
   "locales": [
     "en-US",
@@ -28,12 +22,6 @@
     "es-ES",
     "it-IT",
     "pt-PT"
-  ],
-  "supported_architectures": [
-    "linux/amd64",
-    "linux/arm64",
-    "darwin/amd64",
-    "darwin/arm64"
   ],
   "entries": [
     {
