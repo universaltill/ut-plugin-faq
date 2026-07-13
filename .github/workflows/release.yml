@@ -1,8 +1,8 @@
 name: Release
 
-# Package and publish the FAQ plugin release artifact to the marketplace.
-# CI orchestrates the same repo scripts used for local publishing
-# (scripts/package.sh, scripts/publish.sh); no release logic lives in YAML.
+# Package and publish this page plugin to the marketplace. CI orchestrates the
+# same repo scripts used locally (scripts/package.sh, scripts/publish.sh,
+# scripts/approve.sh); no release logic lives in YAML.
 
 on:
   push:
@@ -23,30 +23,16 @@ on:
 jobs:
   package-and-publish:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - target_os: linux
-            target_arch: amd64
-          - target_os: linux
-            target_arch: arm64
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
-
-      - name: Run tests
-        run: go test ./...
-
-      - name: Validate manifest
+      - name: Validate manifest + content bundles
         run: scripts/validate.sh
 
       - name: Verify tag matches manifest version
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
-          version=$(go run ./tools/pkgtool version)
+          version=$(python3 -c "import json;print(json.load(open('manifest.json'))['version'])")
           tag="${GITHUB_REF_NAME#v}"
           if [ "$tag" != "$version" ]; then
             echo "ERROR: tag v${tag} does not match manifest version ${version}" >&2
@@ -54,37 +40,31 @@ jobs:
           fi
 
       - name: Package release artifact
-        env:
-          TARGET_OS: ${{ matrix.target_os }}
-          TARGET_ARCH: ${{ matrix.target_arch }}
-          SKIP_TESTS: "1" # already ran above
         run: scripts/package.sh
-
-      - name: Show artifact and checksum
-        run: |
-          ls -l dist/
-          cat dist/*.sha256
 
       - name: Upload artifact to workflow run
         uses: actions/upload-artifact@v4
         with:
-          name: release-${{ matrix.target_os }}-${{ matrix.target_arch }}
+          name: release-universal
           path: |
             dist/*.tar.gz
             dist/*.sha256
 
-      # The marketplace currently models one artifact per (version, channel)
-      # release, so it can accept only a single architecture per release. Until
-      # it distinguishes architecture (tracked with the (listing, version,
-      # channel) uniqueness follow-up), publish only linux/amd64; both arches
-      # are still attached to the workflow run above.
       - name: Publish to marketplace
-        if: (github.event_name == 'push' || inputs.publish) && matrix.target_arch == 'amd64'
+        if: github.event_name == 'push' || inputs.publish
         env:
           MARKETPLACE_BASE_URL: ${{ secrets.MARKETPLACE_BASE_URL }}
           MARKETPLACE_UPLOAD_TOKEN: ${{ secrets.MARKETPLACE_UPLOAD_TOKEN }}
           MARKETPLACE_LISTING_ID: ${{ vars.MARKETPLACE_LISTING_ID }}
           MARKETPLACE_CHANNEL: ${{ inputs.channel || 'stable' }}
-          TARGET_OS: ${{ matrix.target_os }}
-          TARGET_ARCH: ${{ matrix.target_arch }}
         run: scripts/publish.sh
+
+      # Dev-marketplace convenience: the pipeline is trusted end-to-end, so the
+      # release is auto-approved (review-assign + approve, which signs it).
+      # Unset the AUTO_APPROVE repo variable to fall back to human review.
+      - name: Auto-approve on the dev marketplace
+        if: (github.event_name == 'push' || inputs.publish) && vars.AUTO_APPROVE == 'true'
+        env:
+          MARKETPLACE_BASE_URL: ${{ secrets.MARKETPLACE_BASE_URL }}
+          MARKETPLACE_UPLOAD_TOKEN: ${{ secrets.MARKETPLACE_UPLOAD_TOKEN }}
+        run: scripts/approve.sh
