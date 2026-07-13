@@ -1,7 +1,7 @@
 {
   "id": "com.universaltill.ut-faq",
   "name": "Universal Till FAQ",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Localized FAQ page for Universal Till POS — the till renders the content bundle natively (ADR-0001: no plugin binary).",
   "author": "Universal Till Contributors",
   "website": "https://universaltill.com",
@@ -27,7 +27,7 @@
     {
       "type": "page",
       "key": "faq-page",
-      "label": "Help / FAQ",
+      "label": "plugin.faq.menu",
       "icon_path": "assets/icon.png",
       "sort_order": 10,
       "menu_group": "help_support",
