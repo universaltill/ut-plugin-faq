@@ -5,6 +5,10 @@
 # every declared locale.
 set -euo pipefail
 cd "$(dirname "$0")/.."
+
+echo "Checking content bundle checksums..."
+python3 scripts/checksum.py --check
+
 python3 - <<'PY'
 import json, os, re, sys
 m = json.load(open("manifest.json"))

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.3
+- Populate the real `checksum_sha256` per locale bundle (was `""` in all 9
+  files despite the data model requiring it — spec audit gap). New
+  `scripts/checksum.py` computes it via byte-level substitution (the
+  checksum field is zeroed to a same-length placeholder before hashing, so
+  it doesn't need to hash itself) and `--check` mode is now wired into
+  `validate.sh` so future content edits can't drift without updating it.
+
 ## 0.2.0
 - Converted to an asset-only plugin: `runtime: "none"`, Go source, binary and
   `tools/pkgtool` removed (ADR-0001 — the POS renders `content/<locale>.json`
