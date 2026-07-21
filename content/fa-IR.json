@@ -1,7 +1,7 @@
 {
   "locale": "fa-IR",
-  "version": "0.2.1",
-  "checksum_sha256": "b1be003873307ee53eeeec57d1b13c425adf9c68eaea1bf7c0fcd6402e463a51",
+  "version": "0.2.3",
+  "checksum_sha256": "fceaeb752f384eba8af56f74f28d1b3697b1ca7577b6619a3be0c7ba228c8431",
   "rtl": true,
   "fallback_locale": "en-US",
   "categories": [

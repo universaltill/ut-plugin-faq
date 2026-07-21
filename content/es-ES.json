@@ -1,7 +1,7 @@
 {
   "locale": "es-ES",
-  "version": "0.2.1",
-  "checksum_sha256": "bbfab65e13007fed905bb44695ac8877a9846d700a265afc7a5fd74c801c447e",
+  "version": "0.2.3",
+  "checksum_sha256": "45cb61e974235f0f28b71a47a0a15f3ca4542aa0941aaafba1127999f8f60b93",
   "rtl": false,
   "fallback_locale": "en-US",
   "categories": [

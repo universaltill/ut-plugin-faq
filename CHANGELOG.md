@@ -7,6 +7,11 @@
   checksum field is zeroed to a same-length placeholder before hashing, so
   it doesn't need to hash itself) and `--check` mode is now wired into
   `validate.sh` so future content edits can't drift without updating it.
+- Bump each locale bundle's internal `"version"` from the stale `0.2.1` to
+  `0.2.3` (match `manifest.json`) — the POS now surfaces this value directly
+  on the FAQ page (`universal-till`'s new version/last-updated metadata
+  footer), so a stale bundle version is user-visible, not just cosmetic
+  drift.
 
 ## 0.2.0
 - Converted to an asset-only plugin: `runtime: "none"`, Go source, binary and
