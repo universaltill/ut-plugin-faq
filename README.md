@@ -48,6 +48,7 @@ Environment variables:
 | --- | --- | --- |
 | `MARKETPLACE_BASE_URL` | yes | Marketplace origin, e.g. `http://localhost:8081` |
 | `MARKETPLACE_UPLOAD_TOKEN` | when enforced | Bearer token for the upload endpoint |
+| `MARKETPLACE_ADMIN_TOKEN` | no | Bearer token for `scripts/approve.sh`'s admin actions (review-assign/approve). Since ut-docs#496, ut-cloud's `authorizeStaff` honors this as a distinct staff-only credential — once configured, it replaces `MARKETPLACE_UPLOAD_TOKEN` for staff-only admin routes entirely, rather than being tried first with a fallback. Set it as its own repo secret to scope the approve step to admin actions instead of reusing the broader vendor-upload token. This script itself still falls back to `MARKETPLACE_UPLOAD_TOKEN` client-side when `MARKETPLACE_ADMIN_TOKEN` is unset. |
 | `MARKETPLACE_CHANNEL` | no | `stable` (default), `beta`, or `alpha` |
 | `MARKETPLACE_LISTING_ID` | no | Existing listing UUID; first publish auto-creates a draft listing |
 
@@ -57,7 +58,9 @@ Environment variables:
 manifest version) and on manual dispatch: validate → package the universal
 artifact → publish via `scripts/publish.sh` → (dev) auto-approve via
 `scripts/approve.sh` when the `AUTO_APPROVE` repo variable is `true`.
-Secrets: `MARKETPLACE_BASE_URL`, `MARKETPLACE_UPLOAD_TOKEN`.
+Secrets: `MARKETPLACE_BASE_URL`, `MARKETPLACE_UPLOAD_TOKEN`, optionally
+`MARKETPLACE_ADMIN_TOKEN` (see the table above — does something real
+server-side since ut-docs#496).
 Vars: `AUTO_APPROVE`, `MARKETPLACE_LISTING_ID`.
 
 ## License
