@@ -77,7 +77,7 @@ jobs:
           echo "Manifest version ${version} has no ${tag} tag yet — creating it."
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag -a "${tag}" -m "Release ${tag} (auto-tagged from manifest.json version on merge to main)"
+          git tag -a "${tag}" -m "Release ${tag} (auto-tagged from manifest.json version on merge to 001-multilingual-faq-page)"
 
           # Explicit refspec (not a bare tag name) so this can never be
           # misread as a push to a same-named branch.
