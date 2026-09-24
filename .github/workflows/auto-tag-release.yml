@@ -20,23 +20,12 @@ name: Auto-tag release
 # steps (tag-vs-manifest check, GitHub Release) run exactly as they would for
 # a tag a human had pushed.
 #
-# This file is identical across the plugin repos that carry it, EXCEPT the
-# branch below — this repo is the one documented exception (ut-docs#1797).
-# `main` here is a stale, disjoint line of history (no manifest.json, no
-# common ancestor with the repo's real default branch) — nothing merges to
-# it, so a copy triggering on `push: branches: [main]` would silently never
-# fire. This repo's actual default/integration branch, where all release
-# history and merges actually land, is `001-multilingual-faq-page`
-# (confirmed via `default_branch` and `origin/HEAD`); that is what this
-# workflow watches instead. Option 1 from ut-docs#1797, chosen over
-# reconciling/renaming branches (option 2) as the lower-risk default — no
-# history surgery on a live repo. The rest of this file is the unmodified
-# canonical copy from ut-plugin-tax-de; per-repo input is still just this
-# repo's own manifest.json, read generically.
+# This file is identical across the plugin repos that carry it; the only
+# per-repo input is the repo's own manifest.json, read generically.
 
 on:
   push:
-    branches: [001-multilingual-faq-page]
+    branches: [main]
 
 permissions:
   contents: write   # push the tag
@@ -77,7 +66,7 @@ jobs:
           echo "Manifest version ${version} has no ${tag} tag yet — creating it."
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag -a "${tag}" -m "Release ${tag} (auto-tagged from manifest.json version on merge to 001-multilingual-faq-page)"
+          git tag -a "${tag}" -m "Release ${tag} (auto-tagged from manifest.json version on merge to main)"
 
           # Explicit refspec (not a bare tag name) so this can never be
           # misread as a push to a same-named branch.
