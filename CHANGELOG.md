@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.4
+- Republish only (ut-docs#5036): version bump so the release is re-stored in
+  Azure Blob. Locale bundles' internal `version` and checksums follow the
+  manifest; no content change.
+
 ## 0.2.3
 - Populate the real `checksum_sha256` per locale bundle (was `""` in all 9
   files despite the data model requiring it — spec audit gap). New
