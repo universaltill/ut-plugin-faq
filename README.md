@@ -58,7 +58,7 @@ Environment variables:
 manifest version) and on manual dispatch: validate → package the universal
 artifact → publish via `scripts/publish.sh` → (dev) auto-approve via
 `scripts/approve.sh` when the `AUTO_APPROVE` repo variable is `true`.
-Secrets: `MARKETPLACE_BASE_URL`, `MARKETPLACE_UPLOAD_TOKEN`, optionally
+Secrets: `MARKETPLACE_UPLOAD_TOKEN`; variable: `MARKETPLACE_BASE_URL`, optionally
 `MARKETPLACE_ADMIN_TOKEN` (see the table above — does something real
 server-side since ut-docs#496).
 Vars: `AUTO_APPROVE`, `MARKETPLACE_LISTING_ID`.
